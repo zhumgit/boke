@@ -33,11 +33,15 @@ gh pr create --base main --fill
 
 ## 本地预览
 
-主题不随仓库提交（见 `.gitignore`），本地先拉一份：
+主题不随仓库提交（见 `.gitignore`），本地按 **CI 用的同一个 commit** 拉一份（全量 clone 很慢，只取那一个 commit 约 1MB）：
 
 ```bash
-git clone --depth 1 https://github.com/adityatelange/hugo-PaperMod themes/PaperMod
+mkdir -p themes/PaperMod && cd themes/PaperMod
+git init -q . && git remote add origin https://github.com/adityatelange/hugo-PaperMod
+git fetch -q --depth 1 origin 969bebdc5600a1639158b5ef4eff9cf6cbb511ac
+git checkout -q FETCH_HEAD
+cd ../..
 hugo server -D
 ```
 
-Hugo 版本用 extended 版，CI 固定为 0.168.0。
+Hugo 版本用 extended 版，CI 固定为 0.168.0，主题固定为 PaperMod commit `969bebdc`（v8.0 tag 与 Hugo 0.158+ 不兼容）。
