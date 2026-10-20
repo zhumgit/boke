@@ -1,0 +1,57 @@
+baseURL = "https://zhumgit.github.io/boke/"
+defaultContentLanguage = "zh-cn"
+locale = "zh-cn"
+title = "boke"
+theme = "PaperMod"
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+
+[taxonomies]
+  tag = "tags"
+
+[pagination]
+  pagerSize = 10
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.highlight]
+    noClasses = false
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
+
+[params]
+  env = "production"
+  title = "boke"
+  description = "Hugo 静态博客，GitHub Pages 托管"
+  defaultTheme = "auto"
+  ShowReadingTime = true
+  ShowShareButtons = false
+  ShowCodeCopyButtons = true
+  ShowBreadCrumbs = true
+  ShowPostNavLinks = true
+  ShowToc = true
+  TocOpen = false
+  mainSections = ["posts"]
+
+  [params.homeInfoParams]
+    Title = "boke"
+    Content = "这里记录技术笔记与随笔。文章源文件在 GitHub 上的 content/posts/ 目录。"
+
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/zhumgit"
+
+[[menu.main]]
+  identifier = "posts"
+  name = "文章"
+  url = "/posts/"
+  weight = 10
+
+[[menu.main]]
+  identifier = "tags"
+  name = "标签"
+  url = "/tags/"
+  weight = 20
